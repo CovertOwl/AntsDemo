@@ -106,6 +106,11 @@
         {
             if (!UnityEngine.Application.isEditor && this.World != null)
             {
+                if (UnityEngine.Input.GetAxis("Exit") > 0.0f)
+                {
+                    UnityEngine.Application.Quit();
+                }
+
                 this.World.Update();
             }
         }

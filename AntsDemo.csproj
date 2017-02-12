@@ -88,6 +88,8 @@
     <Compile Include="Assets\Scripts\Ants\World\WorldActor.cs" />
     <Compile Include="Assets\Scripts\Generic\Actor\Actor.cs" />
     <Compile Include="Assets\Scripts\Generic\Actor\Actor2D.cs" />
+    <Compile Include="Assets\Scripts\Generic\Controller\Simple2DCameraController.cs" />
+    <Compile Include="Assets\Scripts\Generic\Controller\SimpleController.cs" />
     <Compile Include="Assets\Scripts\Generic\Noise\Noise2D.cs" />
     <Compile Include="Assets\Scripts\Generic\PathFinding\Grid.cs" />
     <Compile Include="Assets\Scripts\Generic\PathFinding\GridNode.cs" />
