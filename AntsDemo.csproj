@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -78,13 +76,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Ants\Terrain\ITerrain.cs" />
+    <Compile Include="Assets\Scripts\Ants\Terrain\SimpleTerrain.cs" />
+    <Compile Include="Assets\Scripts\Ants\Terrain\SimpleTerrainActor.cs" />
+    <Compile Include="Assets\Scripts\Ants\Terrain\SimpleTerrainTile.cs" />
+    <Compile Include="Assets\Scripts\Ants\Terrain\SimpleTerrainTileActor.cs" />
     <Compile Include="Assets\Scripts\Ants\Terrain\Terrain.cs" />
     <Compile Include="Assets\Scripts\Ants\Terrain\TerrainActor.cs" />
+    <Compile Include="Assets\Scripts\Ants\Terrain\TestTerrain.cs" />
+    <Compile Include="Assets\Scripts\Ants\Terrain\TestTerrainActor.cs" />
     <Compile Include="Assets\Scripts\Ants\World\World.cs" />
     <Compile Include="Assets\Scripts\Ants\World\WorldActor.cs" />
     <Compile Include="Assets\Scripts\Generic\Actor\Actor.cs" />
     <Compile Include="Assets\Scripts\Generic\Actor\Actor2D.cs" />
-    <Compile Include="Assets\Scripts\Generic\Noise\Perlin2D.cs" />
+    <Compile Include="Assets\Scripts\Generic\Noise\Noise2D.cs" />
     <Compile Include="Assets\Scripts\Generic\PathFinding\Grid.cs" />
     <Compile Include="Assets\Scripts\Generic\PathFinding\GridNode.cs" />
   </ItemGroup>

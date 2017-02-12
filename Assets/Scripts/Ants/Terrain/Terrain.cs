@@ -3,18 +3,17 @@
     /// <summary>
     /// Represents the physical world in which actors can pass through. Terrain is tightly coupled with the pathfinding grid
     /// </summary>
-    public class Terrain : ITerrain
+    public abstract class Terrain : ITerrain
     {
+        #region Properties
         /// <summary>
         /// The pathfinding grid is tightly coupled with the terrain
         /// </summary>
         protected Ants.Pathfinding.Grid grid { get; private set; }
+        #endregion
 
         #region ITerrain
-        void GenerateTerrain(int seed, Ants.Pathfinding.Grid.InitData gridData)
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract void GenerateTerrain(int seed);
         #endregion
     }
 }
