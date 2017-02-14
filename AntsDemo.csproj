@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Ants\Terrain\TerrainActor.cs" />
     <Compile Include="Assets\Scripts\Ants\Terrain\TestTerrain.cs" />
     <Compile Include="Assets\Scripts\Ants\Terrain\TestTerrainActor.cs" />
+    <Compile Include="Assets\Scripts\Ants\Test\PathingTestController.cs" />
     <Compile Include="Assets\Scripts\Ants\World\World.cs" />
     <Compile Include="Assets\Scripts\Ants\World\WorldActor.cs" />
     <Compile Include="Assets\Scripts\Generic\Actor\Actor.cs" />
@@ -91,8 +92,12 @@
     <Compile Include="Assets\Scripts\Generic\Controller\Simple2DCameraController.cs" />
     <Compile Include="Assets\Scripts\Generic\Controller\SimpleController.cs" />
     <Compile Include="Assets\Scripts\Generic\Noise\Noise2D.cs" />
+    <Compile Include="Assets\Scripts\Generic\PathFinding\AStarPathFinder.cs" />
     <Compile Include="Assets\Scripts\Generic\PathFinding\Grid.cs" />
     <Compile Include="Assets\Scripts\Generic\PathFinding\GridNode.cs" />
+    <Compile Include="Assets\Scripts\Generic\PathFinding\IPathFinder.cs" />
+    <Compile Include="Assets\Scripts\Generic\PathFinding\PathFinder.cs" />
+    <Compile Include="Assets\Scripts\Generic\PathFinding\PathFinderActor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

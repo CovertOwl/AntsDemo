@@ -3,10 +3,19 @@ A 3-5 day rapid-prototyping challenge to create a simulation of simple ant behav
 
 ## Feaure Summary
 * Simple procedurally generated world
+* A* pathfinding through fixed grid nodes
   
 # Quick How-To's
 ## How to Play
 You control the camera, by default press WSAD to move and use the mouse wheel to zoom. When you are finished, press escape to exit.
+
+## How to Test Pathfinding
+While in editor mode:  
+1. Ensure at least one GameObject in the scene has a PathingTestController attached.  
+2. Run the simulation.  
+3. Left click to select passable nodes, storing them as origin points for paths.  
+4. When ready to start the path, right click on a passable node.  
+NOTE: Paths are generated over time, and may not instantly appear.  
   
 ## How to change world generation.
 While in editor mode:  
@@ -38,6 +47,10 @@ While in editor mode:
 NOTE: Switching back to the "Simple" terrain type will not restore the world as the settings will no longer be populated. Simply re-load Main scene to restore the world.  
 
 # Version History
+v0.2
+Added pathfinding scripts, with an a* implementation.
+Added simple controller for testing pathfinding
+
 v0.1  
 Simple procedurally generated world based on noise function. Generation is done in editor mode.  
 Simple camera control (zoom & move)  

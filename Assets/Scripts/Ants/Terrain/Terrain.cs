@@ -7,9 +7,9 @@
     {
         #region Properties
         /// <summary>
-        /// The pathfinding grid is tightly coupled with the terrain
+        /// Grid representing the pathfinding data for the terrain
         /// </summary>
-        protected Ants.Pathfinding.Grid grid { get; private set; }
+        public Ants.Pathfinding.Grid pathfindingGrid { get; protected set; }
         #endregion
 
         #region ITerrain

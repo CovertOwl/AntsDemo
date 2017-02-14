@@ -64,11 +64,6 @@
         public SimpleTerrainTile[] TileData { get; set; }
 
         /// <summary>
-        /// Grid representing the pathfinding data for the terrain
-        /// </summary>
-        private Ants.Pathfinding.Grid pathfindingGrid { get; set; }
-
-        /// <summary>
         /// The tiles within the terrain
         /// </summary>
         private SimpleTerrainTile[] tiles;
@@ -92,11 +87,22 @@
         /// </summary>
         /// <param name="x">x location of the tile (0-DimX)</param>
         /// <param name="y">t location of the tile (0-DimY)</param>
-        /// <returns>The tile system type or null if no tile exists</returns>
+        /// <returns>The tile name or null if no tile exists</returns>
         public string TileNameAt(uint x, uint y)
         {
             var tile = this.TileAt(x, y);
             return tile != null ? tile.Name : null;
+        }
+
+        /// <summary>
+        /// Find the tile grid node given a tile position
+        /// </summary>
+        /// <param name="x">x location of the tile (0-DimX)</param>
+        /// <param name="y">t location of the tile (0-DimY)</param>
+        /// <returns>The tile grid node or null if no tile exists</returns>
+        public Ants.Pathfinding.GridNode GridNodeAt(uint x, uint y)
+        {
+            return this.pathfindingGrid.NodeAt(x, y);
         }
         #endregion
 
@@ -132,7 +138,8 @@
                 seed);
 
             //Generate tiles
-            this.tiles = new SimpleTerrainTile[GenerationData.DimX * GenerationData.DimY];
+            this.tiles = new SimpleTerrainTile[this.GenerationData.DimX * this.GenerationData.DimY];
+            var gridNodeData = new Ants.Pathfinding.GridNode.InitData[this.GenerationData.DimX, this.GenerationData.DimY];
             for (uint y = 0; y < this.GenerationData.DimY; ++y)
             {
                 for (uint x = 0; x < this.GenerationData.DimX; ++x)
@@ -152,8 +159,18 @@
                     }
 
                     this.tiles[x + y * GenerationData.DimX] = tile;
+
+                    //Update the relevant grid node
+                    gridNodeData[x, y] = new Pathfinding.GridNode.InitData();
+                    gridNodeData[x, y].Passable = tile != null ? tile.Passable : false;
+                    gridNodeData[x, y].TravelCostModifier = 1.0f;
+                    gridNodeData[x, y].X = x;
+                    gridNodeData[x, y].Y = y;
+                    gridNodeData[x, y].WorldX = this.GenerationData.DimX * -0.5f * this.GenerationData.TileDim + x * this.GenerationData.TileDim + this.GenerationData.TileDim * 0.5f;
+                    gridNodeData[x, y].WorldY = this.GenerationData.DimY * 0.5f * this.GenerationData.TileDim - y * this.GenerationData.TileDim - this.GenerationData.TileDim * 0.5f;
                 }
             }
+            this.pathfindingGrid = new Pathfinding.Grid(this.GenerationData.DimX, this.GenerationData.DimY, this.GenerationData.TileDim, gridNodeData);
         }
         #endregion
     }

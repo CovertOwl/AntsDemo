@@ -74,7 +74,6 @@
             this.Terrain.GenerateTerrain(this.TerrainData.Seed);
 
             //Create tile actors based on terrain
-            float tileDim = this.TerrainData.GenerationData.TileDim;
             for (uint y = 0; y < this.TerrainData.GenerationData.DimY; ++y)
             {
                 for (uint x = 0; x < this.TerrainData.GenerationData.DimX; ++x)
@@ -84,9 +83,10 @@
                     var newTileObj = new UnityEngine.GameObject(objTitle);
 
                     //Parent/position tile
+                    var gridNode = simpleTerrain.GridNodeAt(x, y);
                     var position = new UnityEngine.Vector3(
-                        this.TerrainData.GenerationData.DimX * -0.5f * tileDim + x * tileDim + tileDim * 0.5f, 
-                        this.TerrainData.GenerationData.DimY * 0.5f * tileDim - y * tileDim - tileDim * 0.5f
+                        gridNode.WorldX,
+                        gridNode.WorldY
                         );
                     newTileObj.transform.parent = this.transform;
                     newTileObj.transform.localPosition = position;
